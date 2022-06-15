@@ -1,0 +1,26 @@
+{
+  "name": "opus",
+  "version": "1.0.0",
+  "description": "project management platform",
+  "repository": "https://github.com/KhomsiAdam/opus.git",
+  "author": "KhomsiAdam <khomsiadam@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "commitizen": "^4.2.4",
+    "husky": "^8.0.1",
+    "minimist": "^1.2.6"
+  },
+  "overrides": {
+    "commitizen": {
+      "minimist": "^1.2.6"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
