@@ -4,10 +4,10 @@ import IssueTypeIcon from './IssueTypeIcon';
 import IssuePriorityIcon from './IssuePriorityIcon';
 import Avatar from './Avatar';
 
-import { FaWindowClose } from 'react-icons/fa';
 import Button from './Button';
 import { useCreateIssueMutation } from '@/features/issues/issuesApiSlice';
 import toast from '../helpers/toast';
+import { AiOutlineClose } from 'react-icons/ai';
 
 const IssueCreate = ({ project, fetchProject, onCreate, modalClose }: any) => {
   // const user = useSelector(selectCurrentUser);
@@ -46,7 +46,7 @@ const IssueCreate = ({ project, fetchProject, onCreate, modalClose }: any) => {
         }
       }}
     >
-      <Form.Element className="pt-[25px] px-[40px] pb-[35px]">
+      <Form.Element className="pt-[25px] px-[40px] pb-[35px] w-full">
         <div className="pb-[15px] text-[21px]">Create issue</div>
         <Form.Field.Select
           name="type"
@@ -147,7 +147,7 @@ const renderUser =
         <div className="py-0 pr-[3px] pl-[3px]">
           {user.firstname} {user.lastname}
         </div>
-        {removeOptionValue && <FaWindowClose />}
+        {removeOptionValue && <AiOutlineClose />}
       </div>
     );
   };

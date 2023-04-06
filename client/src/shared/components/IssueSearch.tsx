@@ -14,8 +14,9 @@ import { useGetIssuesQuery } from '@/features/issues/issuesApiSlice';
 
 const IssueSearch = ({ project }: any) => {
   const [isSearchTermEmpty, setIsSearchTermEmpty] = useState(true);
+  const [searchParam, setSearchParam] = useState('');
 
-  const { data, isLoading, isError, isSuccess, error } = useGetIssuesQuery({});
+  const { data, isLoading, isError, isSuccess, error, refetch } = useGetIssuesQuery(searchParam !== '' ? `?title=${searchParam}` : '');
 
   const matchingIssues = get(data, 'issues', []);
 
@@ -31,6 +32,7 @@ const IssueSearch = ({ project }: any) => {
 
     if (searchTerm) {
       // fetchIssues({ searchTerm });
+      setSearchParam(searchTerm);
       console.log(searchTerm);
     }
   };
@@ -41,8 +43,9 @@ const IssueSearch = ({ project }: any) => {
         <InputDebounced
           className="h-[40px] pt-0 pr-0 pb-0 pl-[32px] border-b-2 border-solid border-[#0052cc] bg-white text-[21px] input-focus-hover"
           autoFocus
-          placeholder="Search issues by summary, description..."
+          placeholder="Search issues by title"
           onChange={handleSearchChange}
+          transparent={true}
         />
         <AiOutlineSearch className="absolute top-[8px] left-0" color="#5E6C84" size={22} />
         {isLoading && <StyledSpinner className="absolute top-[5px] right-[30px]" />}
@@ -55,14 +58,14 @@ const IssueSearch = ({ project }: any) => {
         </Fragment>
       )}
 
-      {!isSearchTermEmpty && matchingIssues.length > 0 && (
+      {!isSearchTermEmpty && data.length > 0 && (
         <Fragment>
           <div className="pb-[12px] uppercase text-[#5E6C84] font-bold text-[11.5px]">Matching Issues</div>
-          {matchingIssues.map(renderIssue)}
+          {data.map(renderIssue)}
         </Fragment>
       )}
 
-      {!isSearchTermEmpty && !isLoading && matchingIssues.length === 0 && (
+      {!isSearchTermEmpty && !isLoading && data.length === 0 && (
         <div className="pt-[50px] flex flex-col items-center">
           <NoResultsSVG />
           <div className="pt-[30px] font-[CircularStdMedium] text-[20px] text-[#172b4d]">

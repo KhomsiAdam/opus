@@ -23,6 +23,7 @@ const ProjectBoardIssueDetailsDelete = ({ issue, fetchProject, modalClose }: any
 
   return (
     <ConfirmModal
+      className='pt-[35px] px-[40px] pb-[40px]'
       title="Are you sure you want to delete this issue?"
       message="Once you delete, it's gone for good."
       confirmText="Delete issue"

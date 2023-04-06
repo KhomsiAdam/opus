@@ -47,11 +47,11 @@ const ConfirmModal = ({ className, variant, title, message, confirmText, cancelT
         <Fragment>
           <div className='pb-[25px] font-medium text-[22px] leading-normal'>{title}</div>
           {message && <p className='pb-[25px] whitespace-pre-wrap text-[15px]'>{message}</p>}
-          <div className='flex pt-[6px]'>
-            <Button variant={variant} isWorking={isWorking} onClick={() => handleConfirm(modal)}>
+          <div className='flex justify-end pt-[6px]'>
+            <Button className='mr-3 btn-danger' variant={variant} isWorking={isWorking} onClick={() => handleConfirm(modal)}>
               {confirmText}
             </Button>
-            <Button hollow="true" onClick={modal.close}>
+            <Button className='btn-primary' hollow="true" onClick={modal.close}>
               {cancelText}
             </Button>
           </div>

@@ -35,7 +35,7 @@ export const getAll = async (
   const excludedFields = ['page', 'sort', 'limit', 'fields'];
   excludedFields.forEach((el) => delete queryObj[el]);
   // Filtering: ?field=value, ?field[gte]=value... (gte, gt, lte, lt, ne)
-  const queryString = JSON.stringify(queryObj).replace(/\b(gte|gt|lte|lt|ne)\b/g, (match) => `$${match}`);
+  // const queryString = JSON.stringify(queryObj).replace(/\b(gte|gt|lte|lt|ne)\b/g, (match) => `$${match}`);
   // Sorting: sort=field (asc), sort=-field (desc), sort=field1,field2...
   const sortBy = req?.query?.sort ? (req?.query?.sort as string).split(',').join(' ') : '-createdAt';
   // Field Limiting: ?fields=field1,field2,field3
@@ -47,7 +47,11 @@ export const getAll = async (
   const skip = (page - 1) * limit;
   // Optionally populate and choose selected fields
   const foundEntities = await handlePopulate(
-    EntityModel.find(JSON.parse(queryString)).sort(sortBy).select(fields).skip(skip).limit(limit),
+    EntityModel.find({ [Object.keys(queryObj)[0]]: { $regex: queryObj[Object.keys(queryObj)[0]] } })
+      .sort(sortBy)
+      .select(fields)
+      .skip(skip)
+      .limit(limit),
     populate,
     populateFields,
     selectedFields,

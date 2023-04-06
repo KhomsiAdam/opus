@@ -267,13 +267,16 @@ body {
 
 @layer components {
   .btn-primary {
-    @apply bg-primary-500 rounded-full min-w-[90px] py-2 px-4 text-white font-bold lg:hover:bg-primary-600;
+    @apply bg-primary-500 rounded-full min-w-[90px] py-2 px-4 text-white font-bold lg:hover:bg-primary-600 lg:hover:text-gray-900;
   }
   .btn-secondary {
-    @apply bg-secondary-500 rounded-full min-w-[90px] py-2 px-4 text-white font-bold lg:hover:bg-secondary-600;
+    @apply bg-secondary-500 rounded-full min-w-[90px] py-2 px-4 text-white font-bold lg:hover:bg-secondary-600 lg:hover:text-gray-900;
   }
   .btn-danger {
-    @apply bg-red-700 rounded-full min-w-[90px] py-2 px-4 text-white font-bold lg:hover:bg-red-800;
+    @apply bg-red-700 rounded-full min-w-[90px] py-2 px-4 text-white font-bold lg:hover:bg-red-800 lg:hover:text-gray-900;
+  }
+  .btn-warning {
+    @apply bg-yellow-500 rounded-full min-w-[90px] py-2 px-4 text-white font-bold lg:hover:bg-yellow-600 lg:hover:text-gray-900;
   }
   .input-primary {
     @apply h-[50px] py-3 px-6 text-base font-normal text-gray-800 border-2 border-primary-500 border-solid rounded-full select-none focus:border-primary-300;

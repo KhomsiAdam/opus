@@ -3,7 +3,7 @@ import { debounce } from 'lodash';
 
 import InputAlt from './InputAlt';
 
-const InputDebounced = ({ onChange, value: propsValue, className, ...inputProps }: any) => {
+const InputDebounced = ({ onChange, value: propsValue, className, transparent, ...inputProps }: any) => {
   const [value, setValue] = useState(propsValue);
   const isControlled = propsValue !== undefined;
 
@@ -30,6 +30,7 @@ const InputDebounced = ({ onChange, value: propsValue, className, ...inputProps 
         setValue(newValue);
         handleChange(newValue);
       }}
+      transparent={transparent}
     />
   );
 };

@@ -3,7 +3,7 @@ import { apiSlice } from '@/features/api/apiSlice';
 export const issuesApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getIssues: builder.query({
-      query: () => '/issues',
+      query: (params = '') => `/issues${params}`,
       keepUnusedDataFor: 0,
     }),
     getIssue: builder.query({

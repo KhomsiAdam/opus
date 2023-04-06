@@ -73,6 +73,7 @@ const Comment = ({ comment, fetchIssue }: any) => {
               Edit
             </div>
             <ConfirmModal
+              className="pt-[35px] px-[40px] pb-[40px]"
               title="Are you sure you want to delete this comment?"
               message="Once you delete, it's gone for good."
               confirmText="Delete comment"

@@ -17,7 +17,7 @@ const defaultProps = {
   onChange: () => {},
 };
 
-const Input = forwardRef(({ icon, className, filter, onChange, ...inputProps }: any, ref: any) => {
+const Input = forwardRef(({ icon, className, filter, onChange, transparent, ...inputProps }: any, ref: any) => {
   const handleChange = (event: any) => {
     if (!filter || filter.test(event.target.value)) {
       onChange(event.target.value, event);
@@ -28,7 +28,9 @@ const Input = forwardRef(({ icon, className, filter, onChange, ...inputProps }: 
     <div className={`relative inline-block h-[32px] w-full ${className}`}>
       {icon && icon}
       <input
-        className={`h-full w-full py-0 px-[7px] rounded-[3px] border border-solid border-[#dfe1e6] text-[#172b4d] bg-[#F4F5F7] transition-colors font-normal text-[15px] hover:bg-[#ebecf0] input-alt`}
+        className={`h-full w-full py-0 px-[7px] rounded-[3px] text-[#172b4d] ${
+          !transparent && 'bg-[#F4F5F7] border border-solid border-[#dfe1e6] hover:bg-[#ebecf0]'
+        } transition-colors font-normal text-[15px] input-alt`}
         {...inputProps}
         onChange={handleChange}
         ref={ref}

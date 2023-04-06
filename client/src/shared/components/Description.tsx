@@ -25,7 +25,7 @@ const ProjectBoardIssueDetailsDescription = ({ issue, updateIssue }: any) => {
 
   return (
     <Fragment>
-      <div className="pt-[20px] px-0 pb-[6px] text-[15px] font-medium">Description</div>
+      <div className="mt-[24px] mx-0 mb-[5px] uppercase text-[#5E6C84] text-[12.5px] font-bold">Description</div>
       {isEditing ? (
         <Fragment>
           <TextEditor placeholder="Describe the issue" defaultValue={description} onChange={setDescription} />

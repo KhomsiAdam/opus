@@ -9,7 +9,7 @@ type SEOProps = {
   cover?: string;
 };
 
-const SEO = ({ url, title = 'opus-client', description = 'description', cover }: SEOProps) => {
+const SEO = ({ url, title = 'Opus', description = 'Project management platform', cover }: SEOProps) => {
   return (
     <Helmet>
       {/* TODO: Add structured data <script type="application/ld+json">{structuredData}</script> */}

@@ -69,7 +69,7 @@ const Modal = ({
               className={`inline-block relative bg-white ${className}
               ${
                 variant === 'center'
-                  ? `max-w-[${width}px] align-middle rounded-[3px] box-shadow-medium`
+                  ? `max-w-[${width}px] w-[800px] align-middle rounded-[3px] box-shadow-medium`
                   : 'min-h-screen max-w-[${width}px] box-shadow-aside'
               }`}
               data-testid={testid}

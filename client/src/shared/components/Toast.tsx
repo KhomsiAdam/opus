@@ -36,7 +36,7 @@ const Toast = () => {
         {toasts.map((toast: any) => (
           <CSSTransition key={toast.id} classNames="jira-toast" timeout={200}>
             <div
-              className="relative mb-[5px] w-[300px] py-[15px] px-[20px] rounded-[3px] text-white bg-black cursor-pointer transition-all translateZ"
+              className="relative mb-[5px] w-[300px] py-[15px] px-[20px] rounded-[3px] text-white bg-primary-500 cursor-pointer transition-all translateZ"
               key={toast.id}
               onClick={() => removeToast(toast.id)}
             >
